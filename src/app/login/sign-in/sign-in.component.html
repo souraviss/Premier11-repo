@@ -1,0 +1,42 @@
+<mat-form class="example-form" [formGroup]="loginForm">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-1"><label><img src="assets/imgs/email-icon.svg"></label></div>
+            <div class="col-md-11">
+                <mat-form-field class="example-full-width">
+                    <input matInput type='text' placeholder="email" formControlName="loginemail" name="loginemail" [(ngModel)]="userName">
+                    <mat-error *ngIf="loginemail.invalid">{{getEmailErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"><label><img alt="" src="assets/imgs/password-icon.svg"></label></div>
+              <div class="col-md-11">
+                  <mat-form-field class="example-full-width">
+                    <input matInput type='password' value="" placeholder="password" formControlName="loginpassword"  name="loginpassword" [(ngModel)]="password">
+                    <mat-error *ngIf="loginpassword.invalid">{{getPasswordErrorMessage()}}</mat-error>
+                  </mat-form-field>
+              </div>
+          </div>
+          <button mdbBtn mdbWavesEffect class="login_btn" [disabled]="loginForm.invalid"
+    (click)="user_login(this.userName, this.password)"  mat-dialog-close>Sign In</button>
+
+    <!-- <pre>{{loginForm.value | json}}</pre>
+    <pre>Invalide: {{loginForm.invalid | json}}</pre>
+    <pre>{{loginForm.controls.loginemail.invalid | json}}</pre> -->
+ 
+  </div>
+  <p class="or">OR</p>
+  <div class="social_media">
+      <button mat-button class="" (click)="facebookLogin()">
+        <ion-icon><img alt="" src="assets/imgs/fb-icon.svg"></ion-icon>
+      </button>
+      <button mat-button (click)='googlelogin()' class="">
+          <ion-icon><img alt="" src="assets/imgs/google-icon.svg"></ion-icon>
+        </button>
+  </div>
+  <div class="refferl">
+      <a class="">Have a referral code?</a>
+      <a>Sign Up</a>
+  </div>
+</mat-form>

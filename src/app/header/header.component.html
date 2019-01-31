@@ -1,0 +1,67 @@
+<header class="header_holder">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md-3">
+          <a href=""><img src="../../assets/imgs/logo.png" class="img-fluid"/></a>
+        </div>
+        <div class="col-md-6 text-center">
+          <mat-tab-group class="header_segment">
+            <mat-tab *ngFor="let item of store">
+
+              <ng-template mat-tab-label>
+                <div (click)='getMatchid(item.ttypeUid,item.ttypeName)'>
+                <!-- <div routerLink="['/matchcenter',{{item.ttypeName}}]"> -->
+                <mat-icon><img src="../../assets/imgs/cricket-icon.svg"/></mat-icon>
+                {{item.ttypeName}}
+              </div>
+              </ng-template>
+
+            </mat-tab>
+          </mat-tab-group>
+          <!-- <div class="tournament">
+            <div class="tournament_image">
+              <img src="../../assets/imgs/aus-flag.png"/>
+            </div>
+            <div class="tournament_description">
+              <p>AUS</p>
+              <p>
+                <img src="../../assets/imgs/counter-icon.svg"/>
+                <span>19:58:21</span>
+              </p>
+              <p>IND</p>
+            </div>
+            <div class="tournament_image">
+                <img src="../../assets/imgs/ind-flag.png"/>
+              </div>
+          </div> -->
+        </div>
+        <div class="col-md-3">
+          <a class="profile" (click)="logout()">
+            <div class="profile_image">
+              <img src="../../assets/imgs/user04.png" class="img-fluid"/>
+            </div>
+            <p>Tanusri</p>
+            <img class="arrow" src="../../assets/imgs/arrow.svg"/>
+          </a>
+          <a class="notification">
+            <mat-icon matBadge="15" matBadgeColor="warn"><img src="../../assets/imgs/notification-icon.svg"/></mat-icon>
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- <nav mat-tab-nav-bar>
+      <a mat-tab-link
+         *ngFor="let link of navLinks"
+         [routerLink]="link.path"
+         routerLinkActive #rla="routerLinkActive"
+         [active]="rla.isActive"
+         >
+        {{link.label}}
+      </a>
+    </nav> -->
+
+
+  <router-outlet></router-outlet>

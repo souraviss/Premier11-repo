@@ -1,0 +1,286 @@
+<app-header></app-header>
+<app-banner></app-banner>
+
+
+
+  <section class="segment">
+    <div class="container">
+      <div class="row">
+        <mat-tab-group mat-align-tabs="center">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon
+                ><img src="../../assets/imgs/all-matches-icon.svg"
+              /></mat-icon>
+              <div>
+                <h3>All Matches<span> [10]</span></h3>
+                <p>Lorem ipsum dolor sit amet adipiscing elit.</p>
+              </div>
+            </ng-template>
+            <section class="matches_holder">
+                <div class="container">
+                  <mat-tab-group class="side_panel" dynamicHeight="true">
+                    <mat-tab>
+                          <ng-template mat-tab-label>
+                            <mat-icon><img src="../../assets/imgs/upcomming-icon.svg"></mat-icon><div>Upcomming</div>
+                          </ng-template>
+
+
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-6" *ngFor="let match of upcommingMatch; let i = index">
+
+                                <div class="match_section">
+                                  <h3>{{match.tournamentName}}</h3>
+                                  <div class="row align-items-center">
+                                      <div class="col-md-4">
+                                        <div class="country_image">
+                                          <img src="{{match.team1PhotoUrl}}"/>
+                                        </div>
+                                        <p class="country_name">{{match.team1Name}}</p>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="vs">
+                                          <img src="../../assets/imgs/vs.png"/>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="country_image">
+                                          <img src="{{match.team2PhotoUrl}}" />
+                                        </div>
+                                        <p class="country_name">{{match.team2Name}}</p>
+                                      </div>
+                                    </div>
+                                    <p class="time">{{ getconverteddate(match.startTimeStamp) }}</p>
+                                    <a   (click)="getMatchdetails(match.matchUid , match)">Join</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label><mat-icon><img src="../../assets/imgs/live-icon.svg"/>"</mat-icon>Live </ng-template>
+                      <div class="container">
+                      <div class="row">
+                          <div class="col-md-6" *ngFor="let match of liveMatch; let i = index">
+                              <div class="match_section">
+                                <h3>{{match.tournamentName}}</h3>
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                      <div class="country_image">
+                                        <img src="{{match.team1PhotoUrl}}"/>
+                                      </div>
+                                      <p class="country_name">{{match.team1Name}}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="vs">
+                                        <img src="../../assets/imgs/vs.png"/>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="country_image">
+                                        <img src="{{match.team2PhotoUrl}}" />
+                                      </div>
+                                      <p class="country_name">{{match.team2Name}}</p>
+                                    </div>
+                                  </div>
+                                  <p class="time">Live</p>
+                                  <!-- <a routerLink="/contest">Join</a> -->
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label><mat-icon><img src="../../assets/imgs/completed-icon.svg"/>"</mat-icon>Completed</ng-template>
+                      <div class="container">
+                          <mat-grid-list cols="2" rowHeight="2:1">
+                              <div class="row">
+                                  <div class="col-md-6" *ngFor="let match of completedMatch; let i = index">
+                              <mat-grid-tile>
+                                  <div class="match_section">
+                                    <h3>{{match.tournamentName}}</h3>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4">
+                                          <div class="country_image">
+                                            <img src="{{match.team1PhotoUrl}}"/>
+                                          </div>
+                                          <p class="country_name">{{match.team1Name}}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="vs">
+                                            <img src="../../assets/imgs/vs.png"/>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="country_image">
+                                            <img src="{{match.team2PhotoUrl}}" />
+                                          </div>
+                                          <p class="country_name">{{match.team2Name}}</p>
+                                        </div>
+                                      </div>
+                                      <p class="time"> Complited </p>
+                                      <!-- <a routerLink="/contest">Join</a> -->
+                                  </div>
+
+                                </mat-grid-tile>
+                              </div>
+                            </div>
+                              </mat-grid-list>
+                                </div>
+                      <!-- <div class="col-md-6">
+                          <div class="match_section">
+                            <h3>BPL T20 2019 (T20)</h3>
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-01.png"/>
+                                  </div>
+                                  <p class="country_name">nz</p>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="vs">
+                                    <img src="../../assets/imgs/vs.png"/>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-02.png"/>
+                                  </div>
+                                  <p class="country_name">SL</p>
+                                </div>
+                              </div>
+                              <p class="time">67h  59m  13s</p>
+                              <a>Join</a>
+                          </div>
+                        </div> -->
+                    </mat-tab>
+                  </mat-tab-group>
+                </div>
+              </section>
+          </mat-tab>
+          <div *ngIf="token">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon
+                ><img src="../../assets/imgs/my-matches-icon.svg"
+              /></mat-icon>
+              <div>
+                <h3>MY Matches <span>[0]</span></h3>
+                <p>Lorem ipsum dolor sit amet adipiscing elit.</p>
+              </div>
+            </ng-template>
+            <section class="matches_holder">
+                <div class="container">
+                  <mat-tab-group class="side_panel" dynamicHeight="true">
+                    <mat-tab>
+                          <ng-template mat-tab-label>
+                            <mat-icon><img src="../../assets/imgs/upcomming-icon.svg"></mat-icon><div>Upcomming</div>
+                          </ng-template>
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="match_section">
+                                  <h3>BPL T20 2019 (T20)</h3>
+                                  <div class="row align-items-center">
+                                      <div class="col-md-4">
+                                        <div class="country_image">
+                                          <img src="../../assets/imgs/country-01.png"/>
+                                        </div>
+                                        <p class="country_name">nz</p>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="vs">
+                                          <img src="../../assets/imgs/vs.png"/>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="country_image">
+                                          <img src="../../assets/imgs/country-02.png"/>
+                                        </div>
+                                        <p class="country_name">SL</p>
+                                      </div>
+                                    </div>
+                                    <p class="time">67h  59m  13s</p>
+                                    <a routerLink="/contest">Join</a>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label><mat-icon><img src="../../assets/imgs/live-icon.svg"/>"</mat-icon>Live </ng-template>
+                      <div class="col-md-6">
+                          <div class="match_section">
+                            <h3>BPL T20 2019 (T20)</h3>
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-01.png"/>
+                                  </div>
+                                  <p class="country_name">nz</p>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="vs">
+                                    <img src="../../assets/imgs/vs.png"/>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-02.png"/>
+                                  </div>
+                                  <p class="country_name">SL</p>
+                                </div>
+                              </div>
+                              <p class="time">67h  59m  13s</p>
+                              <!-- <a routerLink="/contest">Join</a> -->
+                          </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label><mat-icon><img src="../../assets/imgs/completed-icon.svg"/>"</mat-icon>Completed</ng-template>
+                      <div class="col-md-6">
+                          <div class="match_section">
+                            <h3>BPL T20 2019 (T20)</h3>
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-01.png"/>
+                                  </div>
+                                  <p class="country_name">nz</p>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="vs">
+                                    <img src="../../assets/imgs/vs.png"/>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="country_image">
+                                    <img src="../../assets/imgs/country-02.png"/>
+                                  </div>
+                                  <p class="country_name">SL</p>
+                                </div>
+                              </div>
+                              <p class="time">67h  59m  13s</p>
+                              <!-- <a routerLink="/contest">Join</a> -->
+                          </div>
+
+                        </div>
+                    </mat-tab>
+                  </mat-tab-group>
+                </div>
+
+              </section>
+          </mat-tab>
+          </div>
+        </mat-tab-group>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<app-footer></app-footer>
+<!-- <router-outlet></router-outlet> -->

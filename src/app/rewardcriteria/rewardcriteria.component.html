@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 style='text-align: center'>Reword Criteria</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>REWARD LAVEL</th>
+          <th>MONEY TO SPEND</th>
+          <th>BONUS</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let item of rewordCritaria" >
+        <tr>
+          <td>{{item.rewardLevel}}</td>
+          <td>{{item.moneyToSpent}}</td>
+          <td>{{item.bonus}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

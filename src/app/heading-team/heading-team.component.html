@@ -1,0 +1,40 @@
+<header class="header_holder">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md-3">
+        <a href=""><img src="../../assets/imgs/logo.png" class="img-fluid"/></a>
+      </div>
+      <div class="col-md-9 text-center">
+
+        <div class="tournament">
+          <div class="tournament_image">
+            <img src="{{team1PhotoUrl}}"/>
+          </div>
+          <div class="tournament_description">
+            <p>{{ team1Name }}</p>
+            <p>
+              <img src="../../assets/imgs/counter-icon.svg"/>
+              <span>{{ getconverteddate(matchStartTime) }}</span>
+            </p>
+            <p>{{ team2Name }}</p>
+          </div>
+          <div class="tournament_image">
+              <img src="{{team2PhotoUrl}}"/>
+            </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-3">
+        <a class="profile">
+          <div class="profile_image">
+            <img src="../../assets/imgs/user04.png" class="img-fluid"/>
+          </div>
+          <p>Tanusri</p>
+          <img class="arrow" src="../../assets/imgs/arrow.svg"/>
+        </a>
+        <a class="notification">
+          <mat-icon matBadge="15" matBadgeColor="warn"><img src="../../assets/imgs/notification-icon.svg"/></mat-icon>
+        </a>
+      </div> -->
+    </div>
+  </div>
+</header>

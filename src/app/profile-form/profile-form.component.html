@@ -1,0 +1,135 @@
+<style>
+
+  .form-ng{
+    width: 100%;
+    border: 1px solid #8e5050;
+    box-shadow: 5px 3px 1px 1px #888888;
+  }
+
+  .skip-btn{
+    float: right;
+    padding: 13px 77px;
+    background-color: unset;
+}
+
+
+</style>
+
+
+<div   style='    padding: 142px;
+border: 1px solid black;
+background-color: silver;'>
+ <br> <br>
+
+ <label class="image-upload-container btn btn-bwm">
+  <span>Select Image</span>
+  <img src="{{ photo }}"/>
+  <button (click)="allImages()">Upload </button>
+</label>
+
+
+
+
+    <div>
+          <span>name:</span>
+            <input type="text" class='form-ng' [(ngModel)]="name" >
+    </div>
+
+
+
+    <div *ngIf="UserNameDis">
+
+            <span> username : </span>
+              <input type="text"  class='form-ng'     (input)="checkUserName($event.target.value)"
+              [(ngModel)]="username">
+              <p> Your Username can never be edited. Set it once  </p>
+              <p *ngIf="showMessage"> maximum username length is 6 characters </p>
+            </div>
+    <div   *ngIf="!UserNameDis">
+
+        <span> username : </span>
+          <input type="text" class='form-ng'  [readonly]="isReadonly()" [(ngModel)]="username" >
+      </div>
+  <br><br>
+
+
+  email :<br>
+  <input type="email"  [readonly]="isReadonly()" [(ngModel)]="email"  class='form-ng'>
+  <input type='number' >
+  <button type='button' style='margin: 10px;' class='skip-btn' *ngIf="emailverified" (click)="verifyEmail()" > verify email </button>
+  <br><br>
+  <br>
+  phone:
+  <input class='form-ng' type="number" [(ngModel)]="phone"  [readonly]="isReadonly()">
+  <br><br>
+  password :<br>
+  <input type="password" [readonly]="isReadonly()" [(ngModel)]="password" class='form-ng'>
+  <button type='button' style='margin: 10px;' class='skip-btn'  (click)="changePass()" > Change Password </button>
+
+  <br><br>
+
+
+
+
+
+  dob :<br>
+
+  <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="dob">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    {{dob}}
+  <br><br>
+
+
+
+  gander :<br>
+  <div [(ngModel)]="gender">
+  <input type="radio" name="gender"  value="Male" (change)="getGender('Male')" [checked]="maleChecked"> Male<br>
+  <input type="radio" name="gender" value="Female" (change)="getGender('Female')" [checked]="femaleChecked"> Female<br>
+   </div>
+   {{gender}}
+  <br><br>
+  Address :<br>
+  <input type="text" name="Address" class='form-ng'  [(ngModel)]="address" >
+  {{address}}
+  <br><br>
+
+  state  :<br>
+  <select interface="popover" #c (change)="getState(c.value)" okText="Okay" cancelText="Dismiss">
+      <option
+        *ngFor="let stateSelect of state; let i = index"
+        [value]="stateSelect"
+        [selected]="i == selectedvalue"
+      >
+        {{ stateSelect }}
+      </option>
+    </select>
+
+  <br><br>
+
+  <div *ngIf="donotPlay" no-lines>
+      <p>Resident of {{ selectedState }} cannot play cash contest</p>
+    </div><br>
+
+  city  :<br>
+  <input type="text"  [(ngModel)]="city" class='form-ng' >
+  <br><br>
+  {{city}}
+
+
+  pincode :<br>
+  <input type="number"  class='form-ng' type="number"  [(ngModel)]="pin">
+  <br><br>
+  {{pin}}
+
+
+  country  :<br>
+  <input type="text" type="text"  [readonly]="isReadonly()" [(ngModel)]="country"   class='form-ng' >
+  <br><br><button ion-button full [disabled]="showMessage" (click)="updateProfile()" class="update-btn">
+    Update Profile
+  </button>
+
+  <button type='button' class='skip-btn' (click)="skipProfile()" > Skip </button>
+</div>

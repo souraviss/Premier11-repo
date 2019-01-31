@@ -1,0 +1,295 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+  span{
+    font-size: 26px;
+     font-weight: 400;
+    margin: 66px;
+    color: #06065d;
+    border-right: 1px solid black;
+
+  }
+
+  h2{
+    font-family: fantasy;
+  }
+
+
+  .pdetails{
+    background: violet;
+    padding: 40px;
+  }
+
+  .gnc{
+    margin: 48px;
+    color: black;
+  }
+
+  .box-history{
+    float: left;
+    float: left;
+    margin: 7px 94px;
+  }
+
+  .but{
+    padding: 11px;
+    border-radius: 18px;
+  }
+
+
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2f3552;
+  color: white;
+}
+
+
+.center {
+
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  outline:hidden;
+
+}
+
+
+.box {
+  float: left;
+  width: 33.33%;
+  height: 200px;
+  padding: 28px;
+
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding: 10px 17px;
+    margin: 10px;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  padding: 10px 17px;
+    margin: 10px;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  padding: 10px 17px;
+    margin: 10px;
+}
+
+.ref{
+  font-size: 29px;
+    color: #b10505b3;
+    font-weight: bold;
+}
+</style>
+
+ <label class="image-upload-container btn btn-bwm gnc containe center">
+
+  <img src="{{ userData.image }}"/>
+  <p style='    font-size: 23px;
+  font-family: cursive;    background-color: seashell;
+    border: 1px solid lightsteelblue;'> {{userData.userName}} </p>
+
+</label>
+
+
+<div>
+  <div class='box'     style='   background-color: #dcd4d4'>
+      <h2>UNLOCK THESE</h2>
+      <h3 class="reward">{{ reward.moneySpent }} to REWARDS AT LEVEL {{ reward.level }}</h3>
+      <p>Cash Bonus {{ reward.bonus }}</p>
+      <button (click)='rewordcritaria()'> Reward Criteria </button>
+    </div>
+
+
+    <div  class='box'    style='background-color: #0f1529 ; color: #fff'>
+        <h2>Pending Rewards</h2>
+
+
+        <div *ngIf="pendingReward.length > 0">
+            <h3>Lorem ipsum Dolor</h3>
+            <button ion-button icon-end round (click)="collectReward(pendingReward[0].rewardLevel)">
+              Click Here &#8377;{{ pendingReward[0].bonus }}
+              <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="pendingRewardDisplay">
+              <h3 class="noreward">No rewards earned Yet.</h3>
+            <p>Play more to earn more rewards. Join more contests to be a champion</p>
+        </div>
+
+
+
+
+      </div>
+
+
+      <div class='box' style='background-color: #e4c1cc' >
+          <h2>Rewards History</h2>
+  <div *ngIf="rewardRecieved.length > 0">
+              <p *ngIf="rewardRecieved.length >= 1">
+                <span>&#8377;</span>{{ rewardRecieved[this.jsonData.data.rewardRecieved.length - 1].bonus }}
+              </p>
+              <p *ngIf="rewardRecieved.length >= 2">
+                <span>&#8377;</span>{{ rewardRecieved[this.jsonData.data.rewardRecieved.length - 2].bonus }}
+              </p>
+              <p *ngIf="rewardRecieved.length >= 3">
+                <span>&#8377;</span>{{ rewardRecieved[this.jsonData.data.rewardRecieved.length - 3].bonus }}
+              </p>
+            </div>
+            <div *ngIf='rewardhistrydisplay'>
+              <h3 class='noreward' class="noreward">No rewards earned Yet.</h3>
+          <p>Play more to get more rewards. Join Premier11 contests to be the champion</p>
+        </div>
+
+  </div>
+
+
+  <button (click)='myResentHistory()' style='float: right ;     font-size: 16px;
+  text-transform: capitalize;
+  color: #ed3f35;     font-weight: bold;'> My recent History </button>
+
+
+
+
+
+
+
+<!-- Account ------------------------------------------------------------------------------------------------------------
+ -->
+
+<div>
+  <h3> Account </h3>
+<table id="customers">
+    <tr>
+      <th> Unutilized </th>
+      <th> Winnings </th>
+      <th> Cash Bonus </th>
+    </tr>
+    <tr>
+      <td>{{ wallet.unutilized }}</td>
+      <td>{{ wallet.winnings }}</td>
+      <td>{{ wallet.cashBonus }}</td>
+    </tr>
+    </table>
+    </div>
+
+<div class='containe center'>
+
+  <button class='but'> Withdraw </button> <button class='but'> Add Cash</button>
+  </div>
+
+
+  <div>
+  <h3> Playing History </h3>
+  <table id="customers">
+      <tr>
+        <th> Contest </th>
+        <th> Matches </th>
+        <th> Series </th>
+        <th> Wins </th>
+      </tr>
+      <tr>
+        <td>{{ playingHistory.jionContest }}</td>
+        <td>{{ playingHistory.joinMatch }}</td>
+        <td>{{ playingHistory.series }}</td>
+        <td>{{ playingHistory.wins }} </td>
+      </tr>
+      </table>
+      </div>
+
+
+
+
+
+
+
+<section>
+<div style='background-color:#7777af ; padding: 59px'>
+  <div class='containe center'>
+ <h2> Friends </h2>
+
+ </div>
+ <div *ngIf="hideFriends">
+    <p class='ref'> Referral Code - {{userData.referCode}} </p>
+    <h3>No friends invite yet.</h3>
+    <p>The more friends you invite, the more you both earn</p>
+  </div>
+
+  <div>
+    <div *ngIf="showFriends">
+        <p class='ref'> Referral Code - {{userData.referCode}} </p>
+      <div *ngFor="let friend of friends" style='float:left ;     margin: 15px;'>
+
+        <img     style='height: 82px' src="{{ friend.img }}"/>
+        <p style='    text-align: center;     font-weight: bolder;
+        font-family: cursive;'>{{ friend.userName }}</p>
+
+      </div>
+    </div>
+    </div>
+<div style='background: #aec6d280' class='containe center'>
+<span> Invite Friends &rArr; </span>
+<a href="#" (click)="fb($event)" class="fa fa-facebook"></a>
+<a href="#" (click)="twitter($event)" class="fa fa-twitter"></a>
+<a href="https://plus.google.com/share?url={{location}}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,    height: 44px;,width=600');return false;"><img
+  src="https://www.gstatic.com/images/icons/gplus-64.png" alt="Share on Google+"/></a>
+</div>
+</div>
+</section>
+
+<div>
+<h2> Personal Details </h2>
+<button (click)='editprofile()' style='    float: right;
+font-size: 23px;
+background: #4c4b4b;
+color: #fff;'> full profile </button>
+
+<div class='pdetails'>
+
+
+     <label>userName: </label> <span>{{userData.userName}} </span>
+     <label>mobileNumber: </label> <span>{{userData.mobileNo}} </span>
+     <label>email: </label> <span>  {{userData.email}} </span>
+
+</div>
+</div>
+
+  <div>
+  <button (click)='changePass()' style='width:50% ; background-color:#670707 ; color: #fff'> Change Password </button>
+  <button (click)='logout()' style='width:50% ; background-color: blue ; color: #fff'> Logout </button>
+
+</div>
+<div>
+    <button (click)='gohome()' style='width:100% ; background-color:#6f6a6a ;
+    padding: 13px ; color: black'> home  </button>
+
+  </div>

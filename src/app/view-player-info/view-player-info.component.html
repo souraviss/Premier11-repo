@@ -1,0 +1,78 @@
+<app-heading-team [matchUid]="matchId" [sportsType]="playerType"></app-heading-team>
+<mat-tab-group animationDuration="0ms">
+        <mat-tab label="Present Teams({{CurrentTeamCount}})">
+                <ng-template matTabContent>
+                        <div class="card" *ngFor="let item of CurrentTeam">
+                                <div class="card-header">
+                                  {{item.teamName}}
+                                  <div class="pull-right">
+                                      <button>Preview</button>
+                                      <button>Edit</button>
+                                      <button>Clone</button>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                                <h5 class="card-title">Captain:</h5>
+                                                <p class="card-text">{{item.cName}}</p>
+                                        </div>
+                                            <div class="col-md-6">
+                                                    <h5 class="card-title">Vice Captain:</h5>
+                                                    <p class="card-text">{{item.vcName}}</p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                   <div class="row">    
+                                       <div class="col-md-3">Wk: {{item.wk}}</div>
+                                       <div class="col-md-3">BM: {{item.bm}}</div>
+                                       <div class="col-md-3">AR: {{item.ar}}</div>
+                                       <div class="col-md-3">BL: {{item.bl}}</div>
+                                   </div>
+                                </div>
+                              </div>
+                    </ng-template>
+        </mat-tab>
+        <mat-tab label="Previous Teams({{previousTeamCount}})">
+                <ng-template matTabContent>
+                        <div class="card" *ngFor="let item of PreviousTeam">
+                                <div class="card-header">
+                                  {{item.teamName}}
+                                  <div class="pull-right">
+                                      <button>Preview</button>
+                                      <button>Edit</button>
+                                      <button>Clone</button>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                                <h5 class="card-title">Captain:</h5>
+                                                <p class="card-text">{{item.cName}}</p>
+                                        </div>
+                                            <div class="col-md-6">
+                                                    <h5 class="card-title">Vice Captain:</h5>
+                                                    <p class="card-text">{{item.vcName}}</p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                   <div class="row">    
+                                       <div class="col-md-3">Wk: {{item.wk}}</div>
+                                       <div class="col-md-3">BM: {{item.bm}}</div>
+                                       <div class="col-md-3">AR: {{item.ar}}</div>
+                                       <div class="col-md-3">BL: {{item.bl}}</div>
+                                   </div>
+                                </div>
+                              </div>     
+                </ng-template>
+        </mat-tab>
+</mat-tab-group>
+
+<div class="row">
+    <div class="col-md-10">
+        <button class="btn btn-danger">Create Team</button>
+    </div>
+</div>
+

@@ -1,0 +1,110 @@
+@import '../../styles.scss';
+.form_bg{
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    display: table;
+    overflow: hidden;
+    background: #11152e;
+    background: linear-gradient(132deg, #1a2880, #af2f2b);
+    padding: 20px 0px;
+    .row{
+        height: 100%;
+    }
+    .logo_image{
+        width:20%;
+        margin-bottom:40px;
+    }
+    .login_btn{
+        @include btn_style;
+        margin-top: 20px;
+    }
+    .example-form{
+        label{
+            img{
+                width: 46px;
+            }
+        }
+        .get_otp{
+            background-color:rgba(255,255,255,0.1);
+            border:1px solid #ffffff;
+            color: #ffffff;
+            font-weight: 400;
+            padding: 7px 11px;
+            width:100%;
+            display: inline-block;
+            text-transform: uppercase;
+            border-radius: 35px;
+            font-size: $verysmall_font;
+            &:hover{
+                background-color:$prime-color;
+                border:1px solid $prime-color;
+            }
+        }
+        .register_btn{
+            @include btn_style;
+            margin-top: 20px;
+        }
+        .showPassword{
+            img{
+                width: 30px;
+            }
+        }
+    }
+    .or{
+        color: #fff;
+        font-size: $small_font;
+        margin: 30px 0px;
+        font-size: 24px;
+        font-weight: 300;
+        position: relative;
+        &:after{
+            content: '';
+            position: absolute;
+            width: 20%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            top: 12px;
+            right: 20%;
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            width: 20%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            top: 12px;
+            left: 20%;
+        }
+    }
+    .refferl{
+        a{
+            border: 1px solid #fff;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 35px;
+            display: inline-block;
+            padding: 5px 31px;
+            z-index: 9999;
+            margin-top: 15px;
+        }
+    }
+    .register_info{
+        p{
+            font-size: 1.2em;
+            color: #fff;
+            font-weight: 300;
+            margin-top: 20px;
+            a{
+                font-weight: 600;
+                color: #fff;
+                margin-left: 10px;
+            }
+        }
+    }
+    
+}
+

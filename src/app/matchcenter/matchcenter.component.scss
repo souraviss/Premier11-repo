@@ -1,0 +1,144 @@
+@import '../../styles.scss';
+.header_holder{
+    background-color: #181c4a;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+
+}
+
+
+@import '../../styles.scss';
+.matches_holder{
+    .mat-tab-body-content{
+        overflow: auto !important;
+    }
+    .match_section{
+        border:1px solid #ffffff;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #ffffff;
+        position: relative;
+        //overflow: hidden;
+        z-index: 0;
+        padding: 15px 15px;
+        margin-bottom: 40px;
+        h3{
+            font-size: 1.2em;
+            color:$prime-color;
+            font-weight: 400;
+            text-shadow: 2px 2px 0px #cccbcb;
+            margin-bottom: 20px;
+        }
+        .country_image{
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            margin:0 auto;
+            border-radius: 50%;
+            img{
+                width: 100%;
+            }
+        }
+        .country_name{
+            text-transform: uppercase;
+            color: $prime-color;
+            font-size: $verysmall_font;
+            position: relative;
+            font-weight: 500;
+            &:after{
+                content:'';
+                position: absolute;
+                left:0px;
+                right: 0px;
+                bottom: -5px;
+                margin:0 auto;
+                background-color: #dedfe1;
+                width:50px;
+                height: 5px;
+                border-radius: 35px;
+            }
+        }
+        &:after{
+            content:'';
+            position: absolute;
+            left:0px;
+            right: 0px;
+            top:0px;
+            background-color: #e3e3e3;
+            height: 50%;
+            widows: 100%;
+            z-index: -1;
+            border-radius: 5px 5px 0px 0px;
+        }
+        .time{
+            color: $secondary-color;
+            font-size: $verysmall_font;
+            font-weight: 600;
+        }
+        a{
+            @include btn_styles;
+            position: absolute;
+            bottom: -20px;
+            margin: 0 auto;
+            left: 0px;
+            right: 0px;
+            margin: 0 auto;
+            width: 29%;
+            text-transform: uppercase;
+        }
+        .vs{
+            position: relative;
+            &:after{
+                content:'';
+                position: absolute;
+                width: 66px;
+                height: 66px;
+                background-image: url(../../assets/imgs/round-line01.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                left:0%;
+                right: 0%;
+                margin:0 auto;
+                top:-80%;
+                transform: rotate(0deg);
+                transition: 0.5s;
+                // animation-name:rounds;
+                // animation-duration: 0.5;
+                // animation-iteration-count: infinite;
+
+
+                animation: rounds 1s infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease-in-out;
+            }
+            &:before{
+                content:'';
+                position: absolute;
+                width: 66px;
+                height: 66px;
+                background-image: url(../../assets/imgs/round-line02.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                left:0%;
+                right: 0%;
+                margin:0 auto;
+                top:-80%;
+                transform: rotate(0deg);
+                transition: 0.5s;
+
+                animation: rounds2 2s infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease-in-out;
+            }
+        }
+    }
+}
+@keyframes rounds {
+    from{transform: rotate(145deg)}
+    to{transform: rotate(0deg)}
+}
+@keyframes rounds2 {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(200deg)}
+}

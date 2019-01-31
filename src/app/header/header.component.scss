@@ -1,0 +1,71 @@
+@import '../../styles.scss';
+.header_holder{
+    background-color: $prime-color;
+    margin-bottom: 10px;
+    .profile{
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        float: right;
+        p{
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 0px;
+            padding:0px 15px;   
+        }
+        .profile_image{
+            width:40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .arrow{
+            width: 20px;
+        }
+    }
+    .notification{
+        float: right;
+        margin-right: 15px;
+        img{
+            width: 50px;
+        }
+    }
+    .tournament{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-image: url(../../assets/imgs/vs-bg.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        .tournament_image{
+            width: 50px;
+            height: 50  px;
+            overflow: hidden;
+            border-radius: 50%;
+            img{
+                width: 100%;
+            }
+        }
+        .tournament_description{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            p{
+                color: #ffffff;
+                margin-bottom: 0px;
+                span{
+                    width: 100%;
+                    display: inline-block;
+                    font-size: 18px;
+                }
+                img{
+                    width: 50px;
+                }
+            }
+        }
+    }
+}
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content{
+    right: 5px;
+}

@@ -1,0 +1,115 @@
+<h2>Joined Context</h2>
+<app-heading-team [matchUid]="matchId" [sportsType]="sportType"></app-heading-team>
+<app-banner></app-banner>
+
+
+<ion-card class="card card-md" *ngFor="let item of listAllContext">
+
+        <ion-row align-items-center="" class="row" text-center="">
+
+          <ion-col class="col" col-9="" col-md-10="" col-sm="" style="padding:0px;">
+
+            <ion-row align-items-center="" class="row">
+
+              <ion-col class="col" col-4="" col-md-2="">
+
+                <div class="ghurche">
+
+                  <round-progress role="progressbar" _nghost-c0="" ng-reflect-current="10" ng-reflect-max="10000" ng-reflect-radius="40" ng-reflect-animation="easeInOutQuart" ng-reflect-animation-delay="0" ng-reflect-duration="800" ng-reflect-stroke="6" ng-reflect-color="#29aae3" ng-reflect-background="#eaeaea" ng-reflect-responsive="false" ng-reflect-clockwise="false" ng-reflect-semicircle="false" ng-reflect-rounded="true" aria-valuemin="item.totalJoin" aria-valuemax="item.totalTeams" style="width: 80px; height: 80px;">
+    <svg _ngcontent-c0="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+      <circle _ngcontent-c0="" fill="none" cx="40" cy="40" r="37" style="stroke: rgb(234, 234, 234); stroke-width: 6;"></circle>
+
+      <path _ngcontent-c0="" fill="none" transform="scale(-1, 1) translate(-80 0)" d="M 40.23247626214978 3.000730347917184 A 37 37 0 0 0 40 3" style="stroke-width: 6; stroke: rgb(41, 170, 227); stroke-linecap: round;"></path>
+    </svg>
+  </round-progress>
+
+                  <p>{{item.totalJoin}}/{{item.totalTeams}}</p>
+
+                </div>
+
+              </ion-col>
+
+              <ion-col class="col" col-4="" col-md-4="">
+
+                <div class="total-winnwers">
+
+                  <h3></h3>
+
+                  <p><span>Total Winnings:</span>{{item.totalWinningAmount}}</p>
+
+                </div>
+
+                <div class="winners">
+
+                  <p><span>Winner:</span>{{item.totalWinners}}</p>
+
+                </div>
+
+              </ion-col>
+
+              <ion-col class="col" col-4="" col-md-4="">
+
+                <div class="total-team">
+
+                  <p><span>Teams: </span>{{item.totalTeams}}</p>
+
+                </div>
+
+                <div class="team-left">
+
+                  <p><span>Teams Left:</span>{{item.totalTeams-item.totalJoin}}</p>
+
+                </div>
+
+              </ion-col>
+
+            </ion-row>
+
+          </ion-col>
+
+          <ion-col class="col" col-3="" col-md-2="">
+
+            <p><span>Entry fee:</span>₹{{item.entryFee}}</p>
+
+            <button icon-end="" ion-button="" round="" ng-reflect-round="" class="button button-md button-default button-default-md button-round button-round-md"><span class="button-inner">
+
+              <!--bindings={
+  "ng-reflect-ng-if": "true",
+  "ng-reflect-ng-if-then": "[object Object]"
+}--> Join 
+
+              <!--bindings={
+  "ng-reflect-ng-if": "false",
+  "ng-reflect-ng-if-then": "[object Object]"
+}-->
+
+              <!--bindings={
+  "ng-reflect-ng-if": "false",
+  "ng-reflect-ng-if-then": "[object Object]"
+}-->
+
+              <!--bindings={
+  "ng-reflect-ng-if": "false",
+  "ng-reflect-ng-if-then": "[object Object]"
+}-->
+
+
+
+              <!---->
+
+              <!---->
+
+              <!---->
+
+              <!---->
+
+            </span><div class="button-effect"></div></button>
+
+          </ion-col>
+
+        </ion-row>
+
+      </ion-card>
+    <!-- </div> -->
+
+<app-footer></app-footer>

@@ -1,0 +1,29 @@
+
+
+
+<div class="container">
+
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th> Recent Transction</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let info of information"  >
+        <tr>
+          <td>{{info.tranAmount}}</td>
+          <td>{{info.tranType}}</td>
+          <td><button type="button" class="btn btn-info btn-lg" (click)='displayDetails()'> Details </button></td>
+           <td>    <div *ngIf='displayFlag' >
+            <p>Trensaction Id :  {{info.tranUid}} </p>
+            <p> Trasaction Date : {{info.tranDoe}} </p>
+            <p> Team Name : {{info.comment}} </p>
+            </div> </td>
+        </tr>
+
+
+
+      </tbody>
+    </table>
+  </div>
